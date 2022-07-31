@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Result Page</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/result.css" th:href="@{/css/style/result.css}">
+    <link href="css/client/default-page.css" rel="stylesheet" th:href="@{/css/client/default-page.css}">
+</head>
+<body>
+
+<!-- Importing NavBar -->
+<div th:insert="~{/default-page :: navbar}"></div>
+
+<!-- Main Container Start -->
+<div class="main-container container py-2 px-4">
+    <div class="card bg-dark text-light py-5 px-4 mx-auto">
+<!--        <img th:src="@{../image/logo.jpg}" alt="image">-->
+        <h3 class="bg-info text-center mb-5 p-2">Điểm Của Bạn</h3>
+        <div class="d-flex justify-content-center">
+            <p>Tên Người Tham Gia:&nbsp;&nbsp;</p>
+            <p th:if="${result}" th:text="${result.username}"></p>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <p>Tổng Câu Trả Lời Đúng:&nbsp;&nbsp;</p>
+            <p th:if="${result}" th:text="${result.totalCorrect}+'/'+${exam.getNumberQues()}"></p>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <p>Điểm:&nbsp;&nbsp;</p>
+            <p th:if="${result}" th:text="${result.score}"></p>
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <a type="button" th:href='@{/score/{id}(id=${idExam})}'
+                    class="btn btn-outline-warning mx-auto">Xem Bảng Điểm</a>
+            <a type="button"th:href='@{/default}'
+                    class="btn btn-outline-warning mx-auto">Quay Về</a>
+        </div>
+    </div>
+</div>
+
+<!-- Importing Footer -->
+<div th:insert="~{/default-page :: footer}"></div>
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

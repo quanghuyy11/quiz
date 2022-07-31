@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>QUANG HUY</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/admin/default-admin.css" rel="stylesheet" th:href="@{/css/admin/default-admin.css}">
+</head>
+<body>
+<div th:insert="~{default-admin.html :: navbarAdmin}"></div>
+<div class="container">
+    <div class="row card mt-5" style="border-color: #00BFFF">
+        <div class="card-header col-lg-12" style="background: #00BFFF">
+            <label class="col-form-label"><h4><strong>Danh sách điểm thi</strong></h4></label>
+        </div>
+        <div class="p-2">
+            <table class="table mt-3 table-striped" id="tableHistory">
+                <thead>
+                <tr style="background-color: deepskyblue">
+                    <th>Tên đề thi</th>
+                    <th class="text-center">Điểm</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="result: ${results}">
+                    <td th:text="${result.name}"></td>
+                    <td class="text-center" th:text="${result.score}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row mt-3">
+            <span class="col-lg-3"></span>
+            <span class="col-lg-3"></span>
+            <span class="col-lg-4"><a class="btn btn-primary" th:href="@{/history/__${idUser}__}">Đóng</a></span>
+        </div>
+        <div class="row col-lg-12 hide mt-3"></div>
+    </div>
+</div>
+<th:block th:insert="~{/default-page :: footer}"></th:block>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

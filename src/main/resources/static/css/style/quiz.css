@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 22px;
+    text-align: center;
+    padding: 15px 25px;
+    border-radius: 4px;
+}
+
+.ques-box {
+    width: 100%;
+    max-width: 800px;
+    padding: 15px 25px;
+    margin: 50px auto 0 auto;
+    border-radius: 4px;
+}
+
+.option {
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #28b651;
+}
+
+.option p {
+    margin-left: 15px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.container{
+    position: relative;
+}
+
+footer {
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+}
+
+.page-footer{
+    position: fixed;
+    padding-top: 10px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    /*border-top: 0.5px white ;*/
+    background: #2b2b2b;
+}
+
+.page-tab{
+    position: fixed;
+    padding-top: 10px;
+    left: 0;
+    bottom: 5vh;
+    width: 30%;
+    height: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    font-weight: bold;
+    font-style: italic;
+    /*border-top: 0.5px white ;*/
+    background: red;
+}
+
+div:not(:last-child) {
+    margin-bottom: 17px;
+}

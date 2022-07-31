@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>QUANG HUY</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .number {
+            display: inline;
+            border-radius: 15px;
+            padding: 3px 6px;
+            background-color: gray;
+            color: white;
+            float: right;
+            font-size: 12px;
+        }</style>
+</head>
+<body>
+<div class="container">
+    <div  th:fragment="thong-ke-thanh-vien" >
+        <div class="card-header  " style="background: #b8daff;text-align: center;">
+            <label class="col-form-label" style="color: black;"><i class="fa fa-thumbs-o-up mr-1" aria-hidden="true"></i>THỐNG KÊ <br>THÀNH VIÊN</label>
+        </div>
+        <table class="table mt-3 ml-2 mr-3 h-50 "  id="tableHistory" style="width:90%;font-size: 15px">
+            <thead>
+                <tr class="bg-light text-primary">
+
+                    <td ><i class="fa fa-user mr-1"  aria-hidden="true"></i></i>Tổng thành viên <span style="float: right;" class="number" th:text="${total}"></span></td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

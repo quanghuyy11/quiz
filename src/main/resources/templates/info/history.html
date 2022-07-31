@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>QUANG HUY</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link href="css/client/default-page.css" rel="stylesheet" th:href="@{/css/client/default-page.css}">
+</head>
+<body>
+<th:block th:insert="~{/default-page :: navbar}"></th:block>
+<div class="container">
+    <div class="row card mt-5" style="border-color: #00BFFF">
+        <div class="card-header col-lg-12" style="background: #00BFFF">
+            <label class="col-form-label"><h4><strong>Lịch Sử</strong></h4></label>
+        </div>
+        <div class="p-2">
+            <table class="table mt-3 table-striped" id="tableHistory">
+                <thead>
+                <tr style="background-color: deepskyblue">
+                    <th>Mã môn</th>
+                    <th>Môn học</th>
+                    <th class="text-center">Điểm trung bình môn</th>
+                    <th class="text-center">Điểm các bài thi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="result : ${results}">
+                    <td th:text="${result.id}"></td>
+                    <td th:text="${result.name}"></td>
+                    <td class="text-center" th:text="${result.score}"></td>
+                    <td class="text-center">
+                        <a th:href="@{/scoreUser/__${users.id}__/__${result.id}__}">
+                            <i class="far fa-plus-square"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row mt-3">
+            <span class="col-lg-3"></span>
+            <span class="col-lg-3"></span>
+            <span class="col-lg-4"><a class="btn btn-primary" th:href="@{/view/__${users.id}__}">Đóng</a></span>
+        </div>
+        <div class="row col-lg-12 hide mt-3"></div>
+    </div>
+</div>
+<th:block th:insert="~{/default-page :: footer}"></th:block>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script th:src="@{../../js/client/history.js}"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>QUANG HUY</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/admin/default-admin.css" rel="stylesheet" th:href="@{/css/admin/default-admin.css}">
+</head>
+<body>
+<div  th:insert="~{default-admin.html :: navbarAdmin}"></div>
+<div class="container">
+    <div class="h4 text-center mb-4">
+        Danh sách bài làm của sinh viên
+    </div>
+    <table class="table table-bordered table-striped " id="tableList">
+        <tr style="background-color: #27c9ff;">
+            <th>Mã đề thi</th>
+            <th>Tên bài thi</th>
+            <th class="text-center">Cho thi lại</th>
+        </tr>
+        <tr th:each="exam : ${exams}">
+            <td th:text="${exam.getIdName()}"></td>
+            <td th:text="${exam.getNameExam()}"></td>
+            <td class="text-center"><a th:href="@{/user/reset/__${idUser}__/__${exam.id}__}">
+                <i class="fas fa-truck-loading"></i></a></td>
+        </tr>
+    </table>
+    <div class="text-center">
+        <a href="/user/list" class="btn btn-primary m-2" style="background-color: #3bceff">Quay về</a>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossOrigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossOrigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossOrigin="anonymous"></script>
+</body>
+</html>
